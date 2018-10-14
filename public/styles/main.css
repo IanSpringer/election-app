@@ -1,0 +1,148 @@
+/* ==========================================================================
+   # RESET
+   ========================================================================== */
+
+/**
+ * A very simple reset that sits on top of Normalize.css.
+ */
+
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend {
+  margin:  0;
+  padding: 0;
+}
+
+
+/**
+ * Remove trailing margins from nested lists.
+ */
+
+li > {
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Remove default table spacing.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/**
+ * 1. Reset Chrome and Firefox behaviour which sets a `min-width: min-content;`
+ *    on fieldsets.
+ */
+
+fieldset {
+  min-width: 0; /* [1] */
+  border: 0;
+}
+
+@font-face {
+  font-family: 'reg-font';
+  src: url('../butler_light.woff');
+}
+
+@font-face {
+  font-family: 'reg-font-mid';
+  src: url('../butler_medium.woff');
+}
+
+h2 {
+  font-family: 'reg-font';
+  z-index: 2;
+  position: relative;
+  padding-top: 40px;
+  font-size: 48px;
+  text-align: center;
+  color: white;
+  top: 0px;
+  padding: 0px;
+  white-space: nowrap;
+  top: -38px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0px 10px;
+}
+
+
+.timer {
+  background-image: url('http://v.img.com.ua/b/1100x999999/f/62/333ae72a365135b2b84ef5eda270f62f.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100vh;
+}
+
+.timer-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .76);
+  top 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.timer-wrap {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 100px;
+  /*background-color: rgba(255, 255, 255, .1);*/
+  border: 1px solid rgb(218,165,32);
+  border-top: 0;
+}
+
+.timer-wrap:before {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 1px;
+  left: 0px;
+  top: 0px;
+  background-color: rgb(218,165,32);
+}
+
+.timer-wrap:after {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 1px;
+  right: 0px;
+  top: 0px;
+  background-color: rgb(218,165,32);
+}
+.timer__inner {
+  font-family: 'reg-font';
+  color: white;
+  display: flex;
+}
+
+.timer__inner span {
+  width: 130px;
+  font-size: 28px;
+  text-align: center;
+  display: inline-block;
+
+}
+
+.timer-wrap > div:first-child() {
+  font-size: 30px;
+}
