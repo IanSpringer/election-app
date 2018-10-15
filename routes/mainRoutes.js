@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/polling', (req, res) => {
   axios.get('https://projects.fivethirtyeight.com/trump-approval-ratings/polls.json')
     .then(function (response) {
-      let latestResults = response.data.slice(response.data.length - 20, response.data.length);
+      let latestResults = response.data.slice(response.data.length - 1);
       res.json(latestResults)
     })
     .catch(function (error) {
