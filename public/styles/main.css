@@ -60,6 +60,85 @@ fieldset {
   src: url('../butler_medium.woff');
 }
 
+.timer-load-more {
+  position: absolute;
+  left: calc(100% + 20px);
+  background: transparent;
+  border: none;
+  padding: 0px;
+  width: 0px;
+  cursor: pointer;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  transition: width .8s cubic-bezier(0.04, 0.74, 0.25, 1.05);
+}
+
+.timer-load-more:after {
+    display: block;
+    position: absolute;
+    content: '';
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    transition: border-color .8s cubic-bezier(0.04, 0.74, 0.25, 1.05);
+    transform: rotate(45deg) translateY(-50%);
+    top: calc(50% - 1px);
+}
+
+.timer-load-more:before {
+  content: '';
+  height: 1px;
+  width: 0;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  background-color: white;
+  transition: width .8s cubic-bezier(0.04, 0.74, 0.25, 1.05), background-color .8s cubic-bezier(0.04, 0.74, 0.25, 1.05);
+}
+
+
+.timer-load-more span {
+  opacity: 0;
+  display: block;
+  transform: translateX(-80px);
+  transition: opacity .2s cubic-bezier(0.04, 0.74, 0.25, 1.05), transform .8s cubic-bezier(0.04, 0.74, 0.25, 1.05), color .8s cubic-bezier(0.04, 0.74, 0.25, 1.05);
+  white-space: nowrap;
+  color: white;
+  margin-bottom: 4px;
+  display: block;
+  padding: 0px;
+  position: absolute;
+  left: 0px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  top: calc(50% - 20px);
+  font-family: 'reg-font';
+}
+
+.timer-load-more:hover {
+  width: 100px;
+}
+
+.timer-load-more:hover span {
+  color: rgb(218,165,32);
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.timer-load-more:hover:after {
+  border-top:   1px solid rgb(218,165,32);
+  border-right: 1px solid rgb(218,165,32);
+}
+
+.timer-load-more:hover:before {
+  width: calc(100% + 5px);
+  background-color: rgb(218,165,32);
+}
+
 h2 {
   font-family: 'reg-font';
   z-index: 2;
@@ -108,6 +187,10 @@ h2 {
   /*background-color: rgba(255, 255, 255, .1);*/
   border: 1px solid rgb(218,165,32);
   border-top: 0;
+}
+
+.timer-wrap.slide-out {
+  display: none;
 }
 
 .timer-wrap:before {

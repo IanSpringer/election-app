@@ -13,13 +13,11 @@ router.get('/', (req, res) => {
 
 
 
-router.get('/suck-rating', (req, res) => {
+router.get('/polling', (req, res) => {
   axios.get('https://projects.fivethirtyeight.com/trump-approval-ratings/polls.json')
     .then(function (response) {
-      let latestResults = response.data[response.data.length - 1];
-      res.render('suck-rating', {
-        disapproval: latestResults.answers[1].pct
-      })
+      let latestResults = response.data.slice(response.data.length - 20, response.data.length);
+      res.json(latestResults)
     })
     .catch(function (error) {
       console.log(error);

@@ -1,4 +1,8 @@
+// Cache DOM Elements
+const timer = document.querySelector('.js-timer-wrap')
 const entry = document.querySelector('.js-entry-point');
+
+// Functions
 const runTime = () => {
 
   let now = new Date().getTime();
@@ -21,5 +25,32 @@ const runTime = () => {
   entry.innerHTML = html;
 }
 
-// runTime()
+const transition = () => {
+  timer.classList.add('slide-out')
+}
+
+const getPolls = () => {
+  fetch('/polling')
+  .then(function (response) {
+    // handle success
+    return response.json()
+  })
+  .then(function (myData) {
+    console.log(myData)
+    transition();
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+}
+
+
+// Call Functions
+document.querySelector('.js-button').addEventListener('click', getPolls)
 setInterval(runTime, 1000)
+
+
